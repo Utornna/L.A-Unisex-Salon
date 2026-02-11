@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | L.A Unisex Salon</title>
+  <link rel="icon" type="image/x-icon" href="/photos/Green and Brown Minimalist Studio Logo Design Template.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background-image: url(/photos/download\ \(2\).jpg);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px 60px;
+      background-color: #ccc;
+    }
+
+    header a {
+      color: black;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 40px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    h1 {
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      color: #bbb;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+    textarea { resize: none; height: 120px; }
+
+    button {
+      padding: 14px;
+      background: #d4af37;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover { opacity: 0.85; }
+
+    .info div { margin-bottom: 25px; }
+
+    .info span {
+      display: block;
+      color: #888;
+      font-size: 0.85rem;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+        margin: 30px 20px;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← 𝑳.𝑨 𝑼𝒏𝒊𝒔𝒆𝒙 𝑺𝒂𝒍𝒐𝒏 𝒂𝒏𝒅 𝑺𝒑𝒂</a>
+  </header>
+
+  <main>
+    <div>
+      <h1>Contact Us</h1>
+      <p>Have a question, special request, or business inquiry? Send us a message.</p>
+
+      <form id="contactForm">
+        <div>
+          <label>Full Name</label>
+          <input type="text" required />
+        </div>
+
+        <div>
+          <label>Email Address</label>
+          <input type="email" required />
+        </div>
+
+        <div>
+          <label>Message</label>
+          <textarea placeholder="Type your message here..." required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="info">
+      <div>
+        <span>Phone</span>
+        <strong>+234 812 211 2108</strong>
+      </div>
+
+      <div>
+        <span>Email</span>
+        <strong>beauty_houseofL.a@yahoo.com</strong>
+      </div>
+
+      <div>
+        <span>Location</span>
+        <strong>-7b Emma abimbola cole street, Lekki phase 1. <br>-The city square, Oba Akinjobi Way, Ikeja GRA.</strong>
+      </div>
+
+      <div>
+        <span>Opening Hours</span>
+        <strong>Mon – Sat: 9am – 7pm</strong>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Urban Crown Salon
+  </footer>
+
+  <script>
+    const contactForm = document.getElementById('contactForm');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = contactForm.querySelector('input[type="text"]').value;
+      const email = contactForm.querySelector('input[type="email"]').value;
+      const message = contactForm.querySelector('textarea').value;
+
+      const salonWhatsApp = '2348122112108'
+
+      const text = `Hello L.A Unisex Salon,%0A%0A` +
+        `New Inquiry:%0A` +
+        `Name: ${name}%0A` +
+        `Email: ${email}%0A` +
+        `Message: ${message}`;
+
+      const whatsappURL = `https://wa.me/${salonWhatsApp}?text=${text}`;
+      window.open(whatsappURL, '_blank');
+
+      contactForm.reset();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment | L.A Unisex Salon and Spa</title>
+  <link rel="icon" type="image/x-icon" href="/photos/Green and Brown Minimalist Studio Logo Design Template.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background-image: url(/photos/Beauty\ salons.jpg);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #000;
+    }
+
+    header a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #d4af37;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+    textarea { resize: none; height: 80px; }
+
+    button {
+      padding: 14px;
+      background: #d4af37;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      color: #000;
+    }
+
+    button:hover { opacity: 0.85; }
+
+    .success {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #1f7a1f;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 20px; }
+      main { margin: 30px 20px; padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← L.A Unisex Salon and Spa</a>
+  </header>
+
+  <main>
+    <h1>Book an Appointment</h1>
+    <p>Schedule your visit in a few easy steps</p>
+
+    <form id="bookingForm">
+      <div>
+        <label>Full Name</label>
+        <input type="text" required />
+      </div>
+
+      <div>
+        <label>Phone Number</label>
+        <input type="tel" required />
+      </div>
+
+      <div>
+        <label>Email (optional)</label>
+        <input type="email" />
+      </div>
+
+      <div>
+        <label>Select Service</label>
+        <select required>
+          <option value="">-- Choose a service --</option>
+          <option>Haircut</option>
+          <option>Braiding</option>
+          <option>Hair Coloring</option>
+          <option>Hair Treatment</option>
+          <option>Spa</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Preferred Date</label>
+        <input type="date" required />
+      </div>
+
+      <div>
+        <label>Preferred Time</label>
+        <input type="time" required />
+      </div>
+
+      <div>
+        <label>Additional Notes</label>
+        <textarea placeholder="Any special requests?"></textarea>
+      </div>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+
+    <div class="success" id="successMessage">
+      ✅ Your appointment request has been received! We’ll contact you shortly.
+    </div>
+  </main>
+
+  <footer>
+    © 2026 L.A Unisex Salon and Spa
+  </footer>
+
+  <script>
+    const form = document.getElementById('bookingForm');
+    const success = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      success.style.display = 'block';
+      const name = form.querySelector('input[type="text"]').value;
+      const phone = form.querySelector('input[type="tel"]').value;
+      const email = form.querySelector('input[type="email"]').value;
+      const service = form.querySelector('select').value;
+      const date = form.querySelector('input[type="date"]').value;
+      const time = form.querySelector('input[type="time"]').value;
+      const notes = form.querySelector('textarea').value;
+
+      const salonWhatsApp = '2348122112108'; 
+
+      const message = `Hello L.A Unisex Salon,%0A%0A` +
+        `New Appointment Request:%0A` +
+        `Name: ${name}%0A` +
+        `Phone: ${phone}%0A` +
+        `Email: ${email || 'N/A'}%0A` +
+        `Service: ${service}%0A` +
+        `Date: ${date}%0A` +
+        `Time: ${time}%0A` +
+        `Notes: ${notes || 'None'}`;
+
+      const whatsappURL = `https://wa.me/${salonWhatsApp}?text=${message}`;
+      window.open(whatsappURL, '_blank');
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>

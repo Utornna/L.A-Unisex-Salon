@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L.A Unisex Salon</title>
+  <link rel="icon" type="image/x-icon" href="/photos/Green and Brown Minimalist Studio Logo Design Template.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      position: sticky;
+      top: 0;
+      background: #0f0f0f;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: bisque;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    .hero {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 0 100px;
+      background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('/photos/download\ \(3\).jpg') center/cover no-repeat;
+      text-align: center;
+      
+    }
+
+    .hero-content {
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      margin-bottom: 30px;
+      color: #e0e0e0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #d4af37;
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 4px;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    section {
+      padding: 80px 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: #d4af37;
+    }
+
+    .cta {
+      background: #d4af37;
+      color: #000;
+      text-align: center;
+      padding: 70px 40px;
+    }
+
+    .cta h2 {
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #000;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+      }
+
+      .hero {
+        padding: 0 20px;
+        text-align: center;
+
+      }
+      .hero-content{
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">𝑳.𝑨 𝑼𝒏𝒊𝒔𝒆𝒙 𝑺𝒂𝒍𝒐𝒏 𝒂𝒏𝒅 𝑺𝒑𝒂 </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="services.html">Services</a>
+      <a href="product.html">Products</a>
+      <a href="booking.html">Book</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Unisex Hair Salon and Spa <br>𝓟𝓻𝓮𝓶𝓲𝓾𝓶 𝓢𝓽𝔂𝓵𝓮.</h1>
+      <p>Experience top-tier grooming, styling, and hair care for everyone.<br> Walk in confident. Walk out crowned.</p>
+      <a href="booking.html" class="btn">Book Appointment</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Professional care for every look</p>
+    </div>
+
+    <div class="services">
+      <div class="service-card">
+        <h3>Haircuts</h3>
+        <p>Clean cuts, fades, trims and styling for all genders.</p>
+      </div>
+      <div class="service-card">
+        <h3>Braiding</h3>
+        <p>Protective styles, cornrows, twists & custom designs.</p>
+      </div>
+      <div class="service-card">
+        <h3>Coloring</h3>
+        <p>Highlights, dyeing, toning & creative color work.</p>
+      </div>
+      <div class="service-card">
+        <h3>Treatments</h3>
+        <p>Hair repair, wash, deep conditioning, scalp care & Spa treatments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready for a New Look?</h2>
+    <p>Book your session in minutes.</p>
+    <br />
+    <a href="booking.html" class="btn">Book Now</a>
+  </section>
+
+  <footer>
+    <p>&lt;&lt;&lt;© 2026 L.A Unisex Salon. All rights reserved.&gt;&gt;&gt;</p>
+  </footer>
+
+</body>
+</html>
