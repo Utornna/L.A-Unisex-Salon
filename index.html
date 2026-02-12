@@ -22,15 +22,13 @@
       line-height: 1.6;
     }
 
-    header {
+   /*  header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
-      position: sticky;
-      top: 0;
-      background: #0f0f0f;
-      z-index: 100;
+      padding: 20px;
+      position: relative;
+      background: #000;
     }
 
     .logo {
@@ -39,13 +37,130 @@
       color: bisque;
     }
 
+    nav{
+      display: none;
+      flex-direction: column;
+      background: #111;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+    }
     nav a {
-      margin-left: 25px;
+     /*  margin-left: 25px;
       text-decoration: none;
       color: #ffffff;
-      font-size: 0.95rem;
+      font-size: 0.95rem; */
+     /*  padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+ */
+   /*  .menu-toggle{
+      display: block;
     }
 
+    nav.active{
+      display: flex;
+    } */ */
+     header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #000;
+  position: relative;
+}
+
+.logo {
+  color: #d4af37;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #d4af37;
+  cursor: pointer;
+}
+
+/* /* MOBILE VIEW */
+/* @media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200%;
+    padding: 20px 0;
+    border-radius: 8px;
+  }
+
+  nav a {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #222;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav.active {
+    display: flex;
+  }
+} */ */
+ @media (max-width: 768px) {
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -250px;   /* hidden off screen */
+    height: 100vh;
+    width: 250px;
+    background: #111;
+    flex-direction: column;
+    padding-top: 80px;
+    gap: 20px;
+    transition: right 0.4s ease;
+  }
+
+  nav a {
+    padding: 15px 25px;
+    border-bottom: 1px solid #222;
+  }
+
+  nav.active {
+    right: 0;   /* slides into view */
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+  }
+}
     nav a:hover {
       color: #d4af37;
     }
@@ -154,17 +269,41 @@
     }
   </style>
 </head>
+<!-- <script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script> -->
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+
+    if (navMenu.classList.contains("active")) {
+      menuToggle.textContent = "✖";
+    } else {
+      menuToggle.textContent = "☰";
+    }
+  });
+</script>
 <body>
 
   <header>
     <div class="logo">𝑳.𝑨 𝑼𝒏𝒊𝒔𝒆𝒙 𝑺𝒂𝒍𝒐𝒏 𝒂𝒏𝒅 𝑺𝒑𝒂 </div>
-    <nav>
-      <a href="#">Home</a>
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="product.html">Products</a>
       <a href="booking.html">Book</a>
       <a href="contact.html">Contact</a>
     </nav>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
   </header>
 
   <section class="hero">
