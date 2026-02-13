@@ -102,6 +102,12 @@ nav a:hover {
   cursor: pointer;
 }
 
+.menu-icon{
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+  color: #d4af37;
+}
 /* /* MOBILE VIEW */
 /* @media (max-width: 768px) {
   nav {
@@ -133,21 +139,26 @@ nav a:hover {
  @media (max-width: 768px) {
 
   nav {
-    position: fixed;
-    top: 0;
-    right: -250px;   /* hidden off screen */
+    position: absolute;
+    top: 60px;
+    right: 0;   /* hidden off screen */
     height: 100vh;
     width: 250px;
     background: #111;
     flex-direction: column;
-    padding-top: 80px;
-    gap: 20px;
-    transition: right 0.4s ease;
+    padding: 20px;
+    display: none;
+    border-radius: 8px 0 0 8px;
   }
 
   nav a {
-    padding: 15px 25px;
-    border-bottom: 1px solid #222;
+   /*  padding: 15px 25px;
+    border-bottom: 1px solid #222; */
+    padding: 10px 0;
+  }
+
+  .menu-icon{
+    display: block;
   }
 
   nav.active {
@@ -158,7 +169,8 @@ nav a:hover {
     display: block;
     font-size: 1.8rem;
     cursor: pointer;
-    z-index: 1001;
+    position: relative;
+    z-index: 1002;
   }
 }
     nav a:hover {
@@ -278,37 +290,30 @@ nav a:hover {
   });
 </script> -->
 <script>
-  const menuToggle = document.getElementById("menuToggle");
-  const navMenu = document.getElementById("navMenu");
-
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-
-    if (navMenu.classList.contains("active")) {
-      menuToggle.textContent = "✖";
-    } else {
-      menuToggle.textContent = "☰";
-    }
-  });
+  function toggleMenu() {
+    const menu = document .getElementById("mobileMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  }
 </script>
 <body>
 
   <header>
     <div class="logo">𝑳.𝑨 𝑼𝒏𝒊𝒔𝒆𝒙 𝑺𝒂𝒍𝒐𝒏 𝒂𝒏𝒅 𝑺𝒑𝒂 </div>
-    <nav id="navMenu">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav id="mobileMenu">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="product.html">Products</a>
-      <a href="booking.html">Book</a>
+      <a href="booking.html">Booking</a>
       <a href="contact.html">Contact</a>
     </nav>
 
-    <div class="menu-toggle" id="menuToggle">☰</div>
+   <!--  <div class="menu-toggle" id="menuToggle">☰</div> -->
   </header>
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Unisex Hair Salon and Spa <br>𝓟𝓻𝓮𝓶𝓲𝓾𝓶 𝓢𝓽𝔂𝓵𝓮.</h1>
+      <h1>L.A Unisex Hair Salon and Spa <br>𝓟𝓻𝓮𝓶𝓲𝓾𝓶 𝓢𝓽𝔂𝓵𝓮.</h1>
       <p>Experience top-tier grooming, styling, and hair care for everyone.<br> Walk in confident. Walk out crowned.</p>
       <a href="booking.html" class="btn">Book Appointment</a>
     </div>
@@ -353,4 +358,3 @@ nav a:hover {
 
 </body>
 </html>
-
