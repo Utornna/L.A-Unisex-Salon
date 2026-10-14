@@ -68,7 +68,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
+  padding: 20px 40px;
   background: #000;
   position: relative;
   z-index: 1000;
@@ -77,9 +77,22 @@
 .logo {
   color: #d4af37;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
+    #mobileMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  width: 220px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  flex-direction: column;
+  padding: 10px 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
 nav {
   display: none;
   position: absolute;
@@ -120,11 +133,13 @@ nav a:hover {
 
 .menu-icon {
   display: block;
-  font-size: 1.8rem;
+  margin-left: auto;
+  font-size: 28px;
   color: #d4af37;
-  cursor: pointer;
-  background: none;
+  background: transparent;
   border: none;
+  cursor: pointer;
+  padding: 5px 10px;
 }
 
 
@@ -155,6 +170,37 @@ nav a:hover {
     display: flex;
   }
 } */ */
+
+    #mobileMenu.active {
+  display: flex;
+}
+
+#mobileMenu a {
+  display: block;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+#mobileMenu a:hover {
+  background: #222;
+  color: #d4af37;
+}
+    @media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 0.9rem;
+  }
+
+  #mobileMenu {
+    right: 10px;
+    width: 200px;
+  }
+}
+
  @media (max-width: 768px) {
 
   nav {
@@ -306,39 +352,6 @@ nav a:hover {
     }
   </style>
 </head>
-<!-- <script>
-  const menuToggle = document.getElementById("menuToggle");
-  const navMenu = document.getElementById("navMenu");
-
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-  });
-</script> -->
-
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById("mobileMenu");
-    menu.classList.toggle("active");
-  }
-
-  document.querySelectorAll("#mobileMenu a").forEach(link => {
-    link.addEventListener("click", () => {
-      document.getElementById("mobileMenu")
-        .classList.remove("active");
-    });
-  });
-
-  document.addEventListener("click", function(event) {
-    const menu = document.getElementById("mobileMenu");
-    const icon = document.querySelector(".menu-icon");
-
-    if (!menu.contains(event.target) &&
-        !icon.contains(event.target)) {
-      menu.classList.remove("active");
-    }
-  });
-</script>
-
 <body>
 
  
@@ -410,6 +423,34 @@ nav a:hover {
   <footer>
     <p>&lt;&lt;&lt;© 2026 L.A Unisex Salon. All rights reserved.&gt;&gt;&gt;</p>
   </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-icon");
+    const menu = document.getElementById("mobileMenu");
+
+    toggle.addEventListener("click", function (event) {
+      event.stopPropagation();
+
+      menu.classList.toggle("active");
+
+      toggle.setAttribute(
+        "aria-expanded",
+        menu.classList.contains("active")
+      );
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!menu.contains(event.target) &&
+          !toggle.contains(event.target)) {
+        menu.classList.remove("active");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+</script>
+</body>
+</html>
 
 </body>
 </html>
