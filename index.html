@@ -71,6 +71,7 @@
   padding: 20px 60px;
   background: #000;
   position: relative;
+  z-index: 1000;
 }
 
 .logo {
@@ -80,19 +81,34 @@
 }
 
 nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  width: 220px;
+  flex-direction: column;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+    nav.active {
   display: flex;
-  gap: 25px;
 }
 
 nav a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   font-size: 0.95rem;
+  padding: 12px 20px;
   transition: 0.3s ease;
 }
 
 nav a:hover {
   color: #d4af37;
+  background: #222;
 }
 
 .menu-toggle {
@@ -102,13 +118,16 @@ nav a:hover {
   cursor: pointer;
 }
 
-.menu-icon{
+.menu-icon {
+  display: block;
   font-size: 1.8rem;
-  cursor: pointer;
-  display: none;
   color: #d4af37;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
-/* /* MOBILE VIEW */
+
+
 /* @media (max-width: 768px) {
   nav {
     display: none;
@@ -141,7 +160,7 @@ nav a:hover {
   nav {
     position: absolute;
     top: 60px;
-    right: 0;   /* hidden off screen */
+    right: 0;  
     height: 100vh;
     width: 250px;
     background: #111;
@@ -265,7 +284,13 @@ nav a:hover {
       header {
         padding: 20px;
       }
-
+      .logo {
+    font-size: 1rem;
+  }
+      nav {
+    right: 15px;
+    width: 200px;
+  }
       .hero {
         padding: 0 20px;
         text-align: center;
@@ -289,27 +314,57 @@ nav a:hover {
     navMenu.classList.toggle("active");
   });
 </script> -->
+
 <script>
   function toggleMenu() {
-    const menu = document .getElementById("mobileMenu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("active");
   }
+
+  document.querySelectorAll("#mobileMenu a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("mobileMenu")
+        .classList.remove("active");
+    });
+  });
+
+  document.addEventListener("click", function(event) {
+    const menu = document.getElementById("mobileMenu");
+    const icon = document.querySelector(".menu-icon");
+
+    if (!menu.contains(event.target) &&
+        !icon.contains(event.target)) {
+      menu.classList.remove("active");
+    }
+  });
 </script>
+
 <body>
 
-  <header>
-    <div class="logo">𝑳.𝑨 𝑼𝒏𝒊𝒔𝒆𝒙 𝑺𝒂𝒍𝒐𝒏 𝒂𝒏𝒅 𝑺𝒑𝒂 </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav id="mobileMenu">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="product.html">Products</a>
-      <a href="booking.html">Booking</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+ 
+<header>
+  <div class="logo">
+    𝑳.𝑨 𝑼𝒏𝒊𝒔𝒆𝒙 𝑺𝒂𝒍𝒐𝒏 𝒂𝒏𝒅 𝑺𝒑𝒂
+  </div>
 
-   <!--  <div class="menu-toggle" id="menuToggle">☰</div> -->
-  </header>
+  <button
+    class="menu-icon"
+    onclick="toggleMenu()"
+    aria-label="Toggle navigation menu"
+    aria-controls="mobileMenu"
+    aria-expanded="false"
+    type="button"
+  >☰</button>
+
+  <nav id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="product.html">Products</a>
+    <a href="booking.html">Booking</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
 
   <section class="hero">
     <div class="hero-content">
